@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { deleteTodo, getAllTodos, postTodo } from "../api/api";
 import { useForm } from "react-hook-form";
 import { useEffect, useMemo, useState } from "react";
-import Task from "./components/task";
+import Todo from "./components/Todo";
 
 const App = () => {
   const queryClient = useQueryClient();
@@ -80,10 +80,10 @@ const App = () => {
           isDark
             ? `bg-[url(/bg-dark-phone.svg)] md:bg-[url(/bg-dark.svg)]`
             : `bg-[url(/bg-white-phone.svg)] md:bg-[url(/bg.svg)]`
-        } md:h-[300px]  w-full h-50 absolute  left-0 top-0 bg-cover bg-no-repeat`}
+        } md:h-75  w-full h-50 absolute  left-0 top-0 bg-cover bg-no-repeat`}
       ></div>
 
-      <div className="relative z-10 md:w-[540px] flex justify-between items-center mb-10">
+      <div className="relative z-10 md:w-135 flex justify-between items-center mb-10">
         <button>
           <img src="/logo.svg" alt="" />
         </button>
@@ -108,7 +108,7 @@ const App = () => {
       </div>
 
       <form
-        className="md:text-lg relative z-10 mb-4 md:w-[540px]"
+        className="md:text-lg relative z-10 mb-4 md:w-135"
         onSubmit={handleSubmit((data) => {
           data = {
             todo: data.todo,
@@ -152,7 +152,7 @@ const App = () => {
       </form>
 
       <section
-        className={`md:max-w-[540px] w-full ${
+        className={`md:max-w-135 w-full ${
           isDark
             ? `bg-[#25273D]`
             : `bg-white shadow-[0px_35px_50px_-15px_rgba(194,195,214,0.50)]`
@@ -160,7 +160,7 @@ const App = () => {
       >
         {filteredTodos &&
           filteredTodos?.map((todo) => {
-            return <Task theme={isDark} key={todo.id} data={todo} />;
+            return <Todo theme={isDark} key={todo.id} data={todo} />;
           })}
 
         <div
@@ -177,7 +177,7 @@ font-normal flex justify-between"
       </section>
 
       <div
-        className={`relative z-100 md:w-[540px] py-3.75 flex justify-center gap-4.75 ${
+        className={`relative z-100 md:w-135 py-3.75 flex justify-center gap-4.75 ${
           isDark
             ? `bg-[#25273D]`
             : `bg-white shadow-[0px_35px_50px_-15px_rgba(194,195,214,0.50)]`

@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { deleteTodo, updateTodo } from "../../api/api";
 
-const Task = ({ data, theme }) => {
+const task = ({ data, theme }) => {
   const queryClient = useQueryClient();
 
   function handleUpdate() {
@@ -74,4 +74,4 @@ font-normal`}
   );
 };
 
-export default Task;
+export default task;

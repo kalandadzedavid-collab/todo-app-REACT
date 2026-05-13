@@ -1,12 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-
 import { deleteTodo, getAllTodos, postTodo } from "../api/api";
-
 import { useForm } from "react-hook-form";
-
-import Task from "./components/task";
-
 import { useEffect, useMemo, useState } from "react";
+import Task from "./components/task";
 
 const App = () => {
   const queryClient = useQueryClient();
